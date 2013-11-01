@@ -95,6 +95,11 @@ LOCAL_MODULE := libjavacore
 LOCAL_C_INCLUDES += external/stlport/stlport bionic/ bionic/libstdc++/include
 LOCAL_SHARED_LIBRARIES += libstlport
 
+ifeq ($(INTEL_HOUDINI), true)
+    LOCAL_CPPFLAGS += -DWITH_HOUDINI
+    LOCAL_STATIC_LIBRARIES += houdini_hook
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 
 #
